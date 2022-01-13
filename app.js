@@ -9,7 +9,9 @@ const router = new koaRouter()
 router.post('/update', async ctx => {
   ctx.status = 200
   const start = async () => {
-    const browser = await puppeteer.launch({ args: ['--no-sandbox'], headless: false })
+    const browser = await puppeteer.launch({
+      args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    })
     const page = await browser.newPage()
     await page.goto('https://www.oddsportal.com/matches/soccer')
 
