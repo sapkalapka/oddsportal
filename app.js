@@ -35,4 +35,4 @@ router.post('/update', async ctx => {
 
 app.use(router.routes())
 app.use(router.allowedMethods())
-app.listen(3000, () => console.log(`App listening on: localhost:3000`))
+app.listen(process.env.PORT || 3000, () => console.log(`App listening on: localhost:3000`))
