@@ -27,11 +27,12 @@ router.post('/update', async ctx => {
         }
       }))
     })
-    ctx.body = JSON.stringify(data)
     fs.writeFile('data.json', JSON.stringify(data), 'utf-8', () => console.log(`Writing data.json`))
     await browser.close()
+    return data
   }
-  start()
+  ctx.body = await start()
+  // ctx.body = start()
 })
 
 app.use(router.routes())
