@@ -8,7 +8,6 @@ const router = new koaRouter()
 
 router.post('/update', async ctx => {
   ctx.status = 200
-  ctx.body = 'Hello from update'
   const start = async () => {
     const browser = await puppeteer.launch()
     const page = await browser.newPage()
